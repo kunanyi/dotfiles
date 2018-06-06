@@ -73,7 +73,8 @@ call plug#begin('~/.vim/plugged')
 	Plug 'jelera/vim-javascript-syntax'
 	Plug 'rhlobo/vim-super-retab'
 	Plug 'vim-scripts/restore_view.vim'
-	"Plug 'ap/vim-buftabline'
+	Plug 'miyakogi/seiya.vim'
+		let g:seiya_auto_enable=1
 call plug#end()
 
 

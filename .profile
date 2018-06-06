@@ -21,6 +21,12 @@ if [ -f "$(brew --prefix)/opt/bash-git-prompt/share/gitprompt.sh" ]; then
 fi
 
 
+# https://gist.github.com/pablete/5871811
+function tabc() { NAME=$1; if [ -z "$NAME" ]; then NAME="Default"; fi; echo -e "\033]50;SetProfile=$NAME\a"; }
+function colorssh() { tabc SSH; ssh $*; tabc; }
+alias ssh="colorssh"
+
+
 if [ -f ~/.bashrc ]; then
 	source ~/.bashrc
 fi
