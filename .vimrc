@@ -45,7 +45,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'scrooloose/nerdtree'
 		let g:NERDTreeMapJumpNextSibling = ''
 		nmap <leader>d :NERDTreeToggle<CR>
-		nmap <leader>f :NERDTreeFind<CR>
+		nmap <leader>D :NERDTreeFind<CR>
 		let g:NERDSpaceDelims=1
 		let g:NERDTreeIgnore=['node_modules$[[dir]]']
 		let g:miniBufExplModSelTarget = 1
