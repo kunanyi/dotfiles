@@ -17,7 +17,6 @@ call plug#begin('~/.vim/plugged')
 		let g:prettier#config#print_width = 800000
 	Plug 'w0rp/ale'
 	Plug 'jiangmiao/auto-pairs'
-	Plug 'Yggdroot/LeaderF'
 	Plug 'terryma/vim-smooth-scroll'
 	Plug 'gregsexton/MatchTag'
 	Plug 'matze/vim-move'
@@ -43,7 +42,6 @@ call plug#begin('~/.vim/plugged')
 		let g:indent_guides_tab_guides = 1
 		autocmd VimEnter * :IndentGuidesEnable
 	Plug 'airblade/vim-gitgutter'
-		let g:gitgutter_enabled = 0
 	Plug 'scrooloose/nerdtree'
 		let g:NERDTreeMapJumpNextSibling = ''
 		nmap <leader>d :NERDTreeToggle<CR>
@@ -115,7 +113,6 @@ set smarttab " insert tabs on the start of a line according to shiftwidth, not t
 set wildmode=longest,list,full " tab completion
 set wildmenu
 
-" filetype plugin on
 filetype off
 filetype indent plugin on
 
@@ -187,8 +184,8 @@ nnoremap <C-H> <C-W><C-H>
 nnoremap ,c :let @* = expand("%:p").":".line('.')<cr>
 
 " Resize current buffer by +/- 1 - http://stackoverflow.com/questions/4368690/how-to-increase-the-vertical-split-window-size-in-vim
-nnoremap <silent> + :exe "res +1"<CR>
-nnoremap <silent> - :exe "res -1"<CR>
+"nnoremap <silent> + :exe "res +1"<CR>
+"nnoremap <silent> - :exe "res -1"<CR>
 
 " Folds
 :noremap <leader>zz zf%
@@ -245,7 +242,7 @@ let g:fzf_history_dir = '~/.local/share/fzf-history'
 nnoremap <silent> <leader>f :call <SID>open_fzf()<CR>
 
 function! s:open_fzf()
-  let l:commands= [ 'Files', 'Buffers', 'BLines', 'Ag', 'Commands', 'GFiles?', 'GCheckout', 'History', 'Tags', 'BTags' ]
+  let l:commands= [ 'Files', 'Buffers', 'BLines', 'Ag', 'Commands', 'GFiles?', 'gcheckout', 'History', 'Tags', 'BTags' ]
   let l:choices = [ '&files', '&buffers', '&lines', '&ag', '&commands', 'git &status', '&git checkout', '&history', '&tags', 'buffer &Tags' ]
   let l:choice = confirm('Complete', join(l:choices, "\n"))
   if l:choice != 0
