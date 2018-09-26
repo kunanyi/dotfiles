@@ -17,6 +17,8 @@ call plug#begin('~/.vim/plugged')
 		let g:prettier#config#print_width = 800000
 	Plug 'w0rp/ale'
 	Plug 'jiangmiao/auto-pairs'
+	Plug 'ruanyl/vim-gh-line' " <------- handy!
+	Plug 'henrik/vim-open-url'
 	Plug 'terryma/vim-smooth-scroll'
 	Plug 'gregsexton/MatchTag'
 	Plug 'matze/vim-move'
@@ -26,6 +28,7 @@ call plug#begin('~/.vim/plugged')
 	Plug 'tpope/vim-fugitive'
 	Plug 'gregsexton/gitv', {'on': ['Gitv']}
 	Plug 'junegunn/vim-easy-align'
+	Plug 'easymotion/vim-easymotion'
 	Plug 'junegunn/vim-github-dashboard'
 	Plug 'jreybert/vimagit'
 	Plug 'rstacruz/sparkup', {'rtp': 'vim/'}
@@ -187,6 +190,11 @@ nnoremap ,c :let @* = expand("%:p").":".line('.')<cr>
 " Resize current buffer by +/- 1 - http://stackoverflow.com/questions/4368690/how-to-increase-the-vertical-split-window-size-in-vim
 "nnoremap <silent> + :exe "res +1"<CR>
 "nnoremap <silent> - :exe "res -1"<CR>
+
+" https://dev.to/jovica/the-vim-trick-which-will-save-your-time-and-nerves-45pg
+" allow sudo mode
+cnoremap w!! execute 'silent! write !sudo tee % >/dev/null' <bar> edit!
+
 
 " Folds
 :noremap <leader>zz zf%

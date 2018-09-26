@@ -3,7 +3,10 @@ export CLICOLOR=1
 export GREP_OPTIONS='--color=auto'
 export LSCOLORS=gxfxbEaEBxxEhEhBaDaCaD
 alias ls="ls -lG"
-
+alias ssh="TERM=xterm-256color ssh"
+alias ip="curl -s icanhazip.com"
+alias paths="echo -e ${PATH//:/\\n}"
+alias fza="!git ls-files -m -o --exclude-standard | fzf --print0 -m | xargs -0 -t -o git add"
 
 # Fuzzy finder
 export FZF_DEFAULT_COMMAND='ag -g ""'
@@ -30,3 +33,15 @@ alias ssh="colorssh"
 if [ -f ~/.bashrc ]; then
 	source ~/.bashrc
 fi
+
+
+# https://gist.github.com/TheAmazingPT/49ea914a51fc0173e635b10579b48edd
+function openpr {
+    BRANCH=`git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'`
+    REPO=`git remote -v | grep fetch | awk '{print $2}'`
+    LINK=`echo $REPO | sed 's!git@!https://!' | sed 's!com:!com/!' | head -n1 | sed 's!\b\.git\b!!'`
+    
+    # For Linux users: change `open` to `xdg-open`
+    open $LINK/compare/$BRANCH?expand=1
+}
+
